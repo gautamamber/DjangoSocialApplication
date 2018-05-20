@@ -1,0 +1,74 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	{% block head %}
+	<title>Base</title>
+	{% endblock %}
+	
+
+</head>
+<style>
+	.color_{
+		color: green;
+		font-size: 30px;
+	}
+
+</style>
+{% if user.is_authenticated %}
+<div class="container-fluid">
+	<div class="row color_">
+		<div class="col-sm-2">
+			<a href="/account">Home</a>
+		</div>
+		
+		
+		<div class="col-sm-2">
+			<a href="/account/change_password">Change password</a>
+		</div>
+		<div class="col-sm-2">
+			<a href="/account/profile/">Profile</a>
+		</div>
+		<div class="col-sm-2">
+			<a href="/account/profile/edit/">Edit Profile</a>
+		</div>
+
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="row color_">	
+		<div class="col-xs-12">
+			<center><a href="/account/logout/">Logout</a></center>
+		</div>
+	</div>
+</div>
+
+{% else %}
+
+<div class="container-fluid">
+	<div class="row color_">
+		<div class="col-sm-2">
+			<a href="/account">Home</a>
+		</div>
+		<div class="col-sm-2">
+			<a href="/account/login">Login</a>
+		</div>
+		<div class="col-sm-2">
+			<a href="/account/register">Register</a>
+		</div>
+		
+
+	</div>
+</div>
+
+{% endif %}
+
+
+<br>
+<br><br><hr>
+{% block body %}
+{% endblock %}
+
+</body>
+</html>
